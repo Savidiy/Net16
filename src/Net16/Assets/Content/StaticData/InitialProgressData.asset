@@ -14,5 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartMails:
   - Id: CourseMail1
-  - Id: CourseMail3
-  - Id: CourseMail2

@@ -1,7 +1,9 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace MainModule
 {
@@ -13,6 +15,7 @@ namespace MainModule
 
         private CompositeDisposable _subscriptions;
         private MailAttachment _attachment;
+        private AttachmentTypeTextProvider _attachmentTypeTextProvider;
 
         private void Awake()
         {
@@ -25,6 +28,12 @@ namespace MainModule
             _subscriptions?.Dispose();
         }
 
+        [Inject]
+        public void Construct(AttachmentTypeTextProvider attachmentTypeTextProvider)
+        {
+            _attachmentTypeTextProvider = attachmentTypeTextProvider;
+        }
+
         public void Initialize(MailAttachment attachment)
         {
             _attachment = attachment;
@@ -32,7 +41,7 @@ namespace MainModule
             _subscriptions = new CompositeDisposable();
 
             Title.text = attachment.StaticData.Value;
-            CollectText.text = attachment.StaticData.Type;
+            CollectText.text = _attachmentTypeTextProvider.GetCollectText(attachment.StaticData.Type);
             attachment.WasReceived.Subscribe(OnWasReceivedChange).AddTo(_subscriptions);
         }
 

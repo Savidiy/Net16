@@ -56,7 +56,13 @@ namespace MainModule
     [Serializable]
     public class AttachmentStaticData
     {
-        public string Type;
+        [EnumToggleButtons] public AttachmentType Type;
         public string Value;
+    }
+
+    public enum AttachmentType
+    {
+        Link = 0,
+        File = 1,
     }
 }

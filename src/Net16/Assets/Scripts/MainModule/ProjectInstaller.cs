@@ -22,10 +22,9 @@ namespace MainModule
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             
+            Container.Bind<AttachmentTypeTextProvider>().AsSingle();
             Container.Bind<MailFactory>().AsSingle();
             Container.Bind<Mailbox>().AsSingle();
-            
-            Container.BindInterfacesAndSelfTo<TickInvoker>().AsSingle();
         }
     }
 }
