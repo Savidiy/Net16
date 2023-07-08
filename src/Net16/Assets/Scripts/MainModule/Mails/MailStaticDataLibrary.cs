@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace MainModule
 {
-    [CreateAssetMenu(fileName = nameof(MailsStaticData), menuName = nameof(MailsStaticData), order = 0)]
-    public class MailsStaticData : AutoSaveScriptableObject, IMailsStaticDataProvider
+    [CreateAssetMenu(fileName = nameof(MailStaticDataLibrary), menuName = nameof(MailStaticDataLibrary), order = 0)]
+    public class MailStaticDataLibrary : AutoSaveScriptableObject, IMailStaticDataProvider
     {
         [SerializeField, ListDrawerSettings(ListElementLabelName = "@this")] private List<MailStaticData> Mails;
 

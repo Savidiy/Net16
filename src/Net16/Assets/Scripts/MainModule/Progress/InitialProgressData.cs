@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MainModule
 {
     [CreateAssetMenu(fileName = nameof(InitialProgressData), menuName = nameof(InitialProgressData), order = 0)]
-    public class InitialProgressData : ScriptableObject
+    public class InitialProgressData : AutoSaveScriptableObject
     {
         public List<MailId> StartMails;
     }

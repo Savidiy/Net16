@@ -1,6 +1,6 @@
 namespace MainModule
 {
-    public interface IMailsStaticDataProvider
+    public interface IMailStaticDataProvider
     {
         MailStaticData GetMailStaticData(string mailId);
     }

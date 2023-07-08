@@ -75,4 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialProgressData: {fileID: 11400000, guid: 76ebddd8b10939c4ba61c76932f74c59, type: 2}
-  MailsStaticData: {fileID: 11400000, guid: 3ddce29349a0c494db8e774879735575, type: 2}
+  MailStaticDataLibrary: {fileID: 11400000, guid: 3ddce29349a0c494db8e774879735575, type: 2}
+  WindowConfigsData: {fileID: 11400000, guid: c7c7b99732e56f843b69cd79907fbee7, type: 2}

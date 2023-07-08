@@ -4,9 +4,9 @@ namespace MainModule
 {
     public class MailFactory
     {
-        private readonly IMailsStaticDataProvider _mailsStaticData;
+        private readonly IMailStaticDataProvider _mailsStaticData;
 
-        public MailFactory(IMailsStaticDataProvider mailsStaticData)
+        public MailFactory(IMailStaticDataProvider mailsStaticData)
         {
             _mailsStaticData = mailsStaticData;
         }
