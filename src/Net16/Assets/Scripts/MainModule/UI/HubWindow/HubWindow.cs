@@ -1,14 +1,11 @@
 using UnityEngine;
-using Zenject;
+using UnityEngine.UI;
 
 namespace MainModule
 {
     public sealed class HubWindow : BaseWindow
     {
-        [Inject]
-        public void Construct(Mailbox mailbox)
-        {
-            Debug.Log("Mails count = " + mailbox.Mails.Count);
-        }
+        [SerializeField] private Button MailBoxButton;
+        [SerializeField] private MailBoxTab MailBoxTab;
     }
 }

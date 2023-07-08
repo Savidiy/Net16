@@ -43,7 +43,7 @@ namespace MainModule
         public string Title;
 
         [TextArea(3, 10)]
-        public string Text;
+        public string Message;
 
         public List<AttachmentStaticData> Attachments;
 

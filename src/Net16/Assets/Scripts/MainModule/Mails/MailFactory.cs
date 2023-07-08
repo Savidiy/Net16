@@ -19,8 +19,20 @@ namespace MainModule
         private Mail CreateMail(string mailId)
         {
             MailStaticData mailStaticData = _mailsStaticData.GetMailStaticData(mailId);
-            var mail = new Mail(mailStaticData, new List<MailAttachment>());
+            
+            List<MailAttachment> mailAttachments = CreateMailAttachments(mailStaticData);
+
+            var mail = new Mail(mailStaticData, mailAttachments);
             return mail;
+        }
+
+        private static List<MailAttachment> CreateMailAttachments(MailStaticData mailStaticData)
+        {
+            var mailAttachments = new List<MailAttachment>();
+            foreach (AttachmentStaticData attachmentStaticData in mailStaticData.Attachments)
+                mailAttachments.Add(new MailAttachment(attachmentStaticData));
+
+            return mailAttachments;
         }
     }
 }
