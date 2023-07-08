@@ -11,6 +11,12 @@ namespace MainModule
 
         private readonly Dictionary<Type, T> _states = new();
 
+        public void AddStates(IReadOnlyList<T> states)
+        {
+            foreach (T state in states)
+                _states.Add(state.GetType(), state);
+        }
+
         public void AddState<TState>(TState state)
             where TState : T, IState
         {

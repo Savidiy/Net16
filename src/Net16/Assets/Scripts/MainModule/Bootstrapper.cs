@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,16 +9,16 @@ namespace MainModule
         private ApplicationStateMachine _applicationStateMachine;
 
         [Inject]
-        public void Construct(ApplicationStateMachine applicationStateMachine, HackingApplicationState hackingApplicationState)
+        public void Construct(ApplicationStateMachine applicationStateMachine, List<IApplicationState> applicationStates) 
         {
             _applicationStateMachine = applicationStateMachine;
 
-            _applicationStateMachine.AddState(hackingApplicationState);
+            _applicationStateMachine.AddStates(applicationStates);
         }
 
         public void Awake()
         {
-            _applicationStateMachine.EnterToState<HackingApplicationState>();
+            _applicationStateMachine.EnterToState<LoadingApplicationState>();
         }
     }
 }

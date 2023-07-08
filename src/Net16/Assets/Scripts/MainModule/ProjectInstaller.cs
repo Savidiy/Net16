@@ -7,7 +7,9 @@ namespace MainModule
         public override void InstallBindings()
         {
             Container.Bind<ApplicationStateMachine>().AsSingle();
-            Container.Bind<HackingApplicationState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingApplicationState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HubApplicationState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HackingApplicationState>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<TickInvoker>().AsSingle();
         }
