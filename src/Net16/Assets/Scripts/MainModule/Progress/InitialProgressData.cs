@@ -15,6 +15,6 @@ namespace MainModule
     public class MailId
     {
         [ValueDropdown(nameof(AvailableMailsId)), HideLabel] public string Id;
-        private ValueDropdownList<string> AvailableMailsId => MailIdsProvider.AvailableMailIds;
+        private ValueDropdownList<string> AvailableMailsId => OdinMailIdsProvider.AvailableMailIds;
     }
 }

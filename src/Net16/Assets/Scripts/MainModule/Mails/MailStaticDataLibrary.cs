@@ -42,7 +42,7 @@ namespace MainModule
         public string Receiver;
         public string Title;
 
-        [TextArea(3, 10)]
+        [TextArea(1, 20)]
         public string Message;
 
         public List<AttachmentStaticData> Attachments;
@@ -57,7 +57,14 @@ namespace MainModule
     public class AttachmentStaticData
     {
         [EnumToggleButtons] public AttachmentType Type;
-        public string Value;
+
+        [ValueDropdown(nameof(AvailableFileIds)), ShowIf(nameof(NeedShowFileId))] public string FileId;
+        private ValueDropdownList<string> AvailableFileIds => OdinFileIdsProvider.AvailableFileIds;
+        private bool NeedShowFileId => Type == AttachmentType.File;
+
+        [ValueDropdown(nameof(AvailableLinkIds)), ShowIf(nameof(NeedShowLinkId))] public string LinkId;
+        private ValueDropdownList<string> AvailableLinkIds => OdinLinkIdsProvider.AvailableLinkIds;
+        private bool NeedShowLinkId => Type == AttachmentType.Link;
     }
 
     public enum AttachmentType

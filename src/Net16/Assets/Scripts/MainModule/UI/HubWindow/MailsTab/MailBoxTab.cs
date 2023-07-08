@@ -15,7 +15,7 @@ namespace MainModule
         [Inject]
         public void Construct(Mailbox mailbox, IInstantiator instantiator)
         {
-            for (var index = mailbox.Mails.Count - 1; index >= 0; index--)
+            for (var index = 0; index < mailbox.Mails.Count; index++)
             {
                 Mail mail = mailbox.Mails[index];
                 var mailNameRow = instantiator.InstantiatePrefabForComponent<MailNameRow>(MailNameRow, MailNameRowRoot);

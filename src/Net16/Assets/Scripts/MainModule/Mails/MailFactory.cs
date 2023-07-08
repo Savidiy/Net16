@@ -5,10 +5,12 @@ namespace MainModule
     public class MailFactory
     {
         private readonly IMailStaticDataProvider _mailsStaticData;
+        private readonly Inventory _inventory;
 
-        public MailFactory(IMailStaticDataProvider mailsStaticData)
+        public MailFactory(IMailStaticDataProvider mailsStaticData, Inventory inventory)
         {
             _mailsStaticData = mailsStaticData;
+            _inventory = inventory;
         }
         
         public Mail CreateMail(MailId mailId)
@@ -26,11 +28,11 @@ namespace MainModule
             return mail;
         }
 
-        private static List<MailAttachment> CreateMailAttachments(MailStaticData mailStaticData)
+        private List<MailAttachment> CreateMailAttachments(MailStaticData mailStaticData)
         {
             var mailAttachments = new List<MailAttachment>();
             foreach (AttachmentStaticData attachmentStaticData in mailStaticData.Attachments)
-                mailAttachments.Add(new MailAttachment(attachmentStaticData));
+                mailAttachments.Add(new MailAttachment(attachmentStaticData, _inventory));
 
             return mailAttachments;
         }

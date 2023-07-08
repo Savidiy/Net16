@@ -7,7 +7,7 @@ using Zenject;
 
 namespace MainModule
 {
-    internal class AttachmentRow : MonoBehaviour
+    internal class LinkActionRow : MonoBehaviour
     {
         [SerializeField] private Button CollectButton;
         [SerializeField] private TMP_Text CollectText;
